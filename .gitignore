@@ -1,2 +1,9 @@
+#Venv
+venv
 .env
 testing
+
+
+#Chache
+__pycache__/
+*.pyc
