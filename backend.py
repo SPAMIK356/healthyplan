@@ -16,7 +16,7 @@ async def lifespan(app: FastAPI):
     model = getenv("MODEL")
 
     if model == None:
-        raise Exception("Моедль не вказана! Додайте назву моделі в файл .env під назвою 'MODEL'!")
+        raise Exception("Модель не вказана! Додайте назву моделі в файл .env під назвою 'MODEL'!")
 
     usedModel = str(model)
     client = genai.Client()
@@ -63,8 +63,8 @@ class Plan(BaseModel):
     note : str = Field(description="Додаткова інформація (1-3 речення)")
 
 @app.post('/get_plan')
-async def get_plan(userParams : UserParams):
-    """#Генерує план прийому їжі
+async def get_plan(userParams : UserParams) -> Plan:
+    """# Генерує план прийому їжі
     
     На основі переданих даних генерує детальний план прийому їжі на день.
     
@@ -79,10 +79,10 @@ async def get_plan(userParams : UserParams):
                                                         model=usedModel,contents=prompt,
                                                         
                                                         config={"response_mime_type": "application/json",
-                                                                "response_json_schema": Plan.model_json_schema(),
+                                                                "response_schema": Plan,
                                                                 }
                                                         )
     
     result = Plan.model_validate_json(str(response.text))
 
-    return Plan
+    return result
