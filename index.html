@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthy Plan | Твій ідеальний раціон</title>
+    <title>Healthy Plan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <header class="glass-header">
@@ -25,82 +24,120 @@
             <p class="fade-in-delay">Створюй персональний план харчування за лічені секунди. Смачно та корисно.</p>
             <div class="hero-buttons fade-in-delay">
                 <a href="#calculator" class="btn-primary">Розрахувати раціон</a>
-                <a href="#about" class="btn-secondary">Дізнатися більше</a>
+                <a href="#hero" class="btn-secondary">Дізнатися більше</a>
             </div>
         </div>
         <div class="blob"></div>
     </section>
 
     <section id="calculator" class="calculator-section">
-<div class="container">
-    <div class="section-header">
-        <h2>Твої параметри</h2>
-        <p>Введи дані, щоб ШІ міг розрахувати твій ідеальний КБЖВ</p>
-    </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Твої параметри</h2>
+                <p>Введи дані, щоб ШІ міг розрахувати твій ідеальний КБЖВ</p>
+            </div>
 
-<form id="diet-form" class="bento-grid">
-    <div class="bento-item main-metrics glass-card">
-        <div class="input-group">
-            <label>Вік: <span id="age-val">25</span></label>
-            <input type="range" id="age" min="0" max="100" value="25" class="slider">
-        </div>
-        <div class="input-group">
-            <label>Зріст: <span id="height-val">175</span> см</label>
-            <input type="range" id="height" min="100" max="250" value="175" class="slider">
-        </div>
-        <div class="input-group">
-            <label>Вага: <span id="weight-val">70</span> кг</label>
-            <input type="range" id="weight" min="0" max="250" value="70" class="slider">
-        </div>
-    </div>
+            <form id="diet-form" class="bento-grid">
+                <div class="bento-item main-metrics glass-card">
+                    <div class="input-group">
+                        <label>Вік: <span id="age-val">25</span></label>
+                        <input type="range" id="age" min="0" max="100" value="25" class="slider">
+                    </div>
+                    <div class="input-group">
+                        <label>Зріст: <span id="height-val">175</span> см</label>
+                        <input type="range" id="height" min="100" max="250" value="175" class="slider">
+                    </div>
+                    <div class="input-group">
+                        <label>Вага: <span id="weight-val">70</span> кг</label>
+                        <input type="range" id="weight" min="0" max="250" value="70" class="slider">
+                    </div>
+                </div>
 
-    <div class="bento-item gender-selection glass-card">
-        <label>Стать</label>
-        <div class="radio-group">
-            <input type="radio" name="gender" value="male" id="male" checked>
-            <label for="male" class="radio-label">Чоловік</label>
-            <input type="radio" name="gender" value="female" id="female">
-            <label for="female" class="radio-label">Жінка</label>
+                <div class="bento-item gender-selection glass-card">
+                    <label>Стать</label>
+                    <div class="radio-group">
+                        <input type="radio" name="gender" value="male" id="male" checked>
+                        <label for="male" class="radio-label">Чоловік</label>
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female" class="radio-label">Жінка</label>
+                    </div>
+                </div>
+
+                <div class="bento-item goal-selection glass-card">
+                    <label>Твоя мета</label>
+                    <div class="goal-cards">
+                        <div class="goal-card active" data-value="weight-loss">Схуднення</div>
+                        <div class="goal-card" data-value="maintenance">Підтримка форми</div>
+                        <div class="goal-card" data-value="muscle-gain">Набір маси</div>
+                        <div class="goal-card" data-value="other">Інше</div>
+                    </div>
+                    <input type="text" id="goal-other" placeholder="Напиши свою мету..." style="display: none;" class="mt-10">
+                    <input type="hidden" id="goal" value="weight-loss"> 
+                </div>
+
+                <div class="bento-item submit-area">
+                    <button type="button" id="submit-btn" class="btn-calculate">
+                        Згенерувати раціон ✨
+                    </button>
+                </div>
+            </form>
+
+            <div id="result-area" class="result-container" style="display: none;">
+                <div class="section-header">
+                    <h2>Твій персональний план</h2>
+                </div>
+                <div class="results-bento">
+                    <div class="macro-card kcal">
+                        <span class="label">Калорії</span>
+                        <span id="res-kcal" class="value">0</span>
+                    </div>
+                    <div class="macro-card protein">
+                        <span class="label">Білки</span>
+                        <span id="res-p" class="value">0г</span>
+                    </div>
+                    <div class="macro-card fats">
+                        <span class="label">Жири</span>
+                        <span id="res-f" class="value">0г</span>
+                    </div>
+                    <div class="macro-card carbs">
+                        <span class="label">Вуглеводи</span>
+                        <span id="res-c" class="value">0г</span>
+                    </div>
+                    <div class="bento-item meal-plan glass-card">
+                        <h3>Меню на день</h3>
+                        <div id="diet-result" class="meal-content">
+                            Тут з'явиться план від ШІ...
+                        </div>
+                    </div>
+                    <div class="bento-item chart-area glass-card">
+                        <h3>Розподіл нутрієнтів</h3>
+                        <div class="chart-wrapper">
+                            <img id="diet-chart" src="" alt="Діаграма">
+                            <div id="chart-placeholder" class="placeholder">Діаграма генерується...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="bento-item goal-selection glass-card">
-        <label>Твоя мета</label>
-        <div class="goal-cards">
-            <div class="goal-card active" data-value="weight-loss">Схуднення</div>
-            <div class="goal-card" data-value="maintenance">Підтримка форми</div>
-            <div class="goal-card" data-value="muscle-gain">Набір маси</div>
-            <div class="goal-card" data-value="other">Інше</div>
-        </div>
-        <input type="text" id="goal-other" placeholder="Напиши свою мету..." style="display: none;" class="mt-10">
-        <input type="hidden" id="goal" value="weight-loss"> </div>
-
-    <div class="bento-item submit-area">
-        <button type="button" id="submit-btn" class="btn-calculate">
-            Згенерувати раціон
-        </button>
-    </div>
-</form>
-
-    <div id="result-area" class="result-container" style="display: none;">
-        <div class="loader-skeleton"></div>
-        <div id="diet-result" class="text-output"></div>
-    </div>
-</div>
     </section>
 
-    <script>
-    // Оновлення цифр біля слайдерів
+    <div id="loader" class="loader-overlay" style="display: none;">
+        <div class="chef-loader"></div>
+        <p>Готуємо твій ідеальний раціон...</p>
+    </div>
+
+ <script>
     const sliders = ['age', 'height', 'weight'];
     sliders.forEach(id => {
         const input = document.getElementById(id);
         const output = document.getElementById(id + '-val');
-        input.oninput = function() {
-            output.innerHTML = this.value;
+        if (input && output) {
+            input.oninput = function() {
+                output.innerHTML = this.value;
+            }
         }
     });
 
-    // Перемикання карток мети
     document.querySelectorAll('.goal-card').forEach(card => {
         card.onclick = function() {
             document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('active'));
@@ -109,12 +146,38 @@
             const goalValue = this.getAttribute('data-value');
             document.getElementById('goal').value = goalValue;
             
-            // Показуємо поле "Інше", якщо обрано ✨ Інше
             const otherInput = document.getElementById('goal-other');
-            otherInput.style.display = (goalValue === 'other') ? 'block' : 'none';
+            if (otherInput) {
+                otherInput.style.display = (goalValue === 'other') ? 'block' : 'none';
+            }
         }
     });
-</script>
 
+    document.getElementById('submit-btn').onclick = function() {
+        const loader = document.getElementById('loader');
+        const resultArea = document.getElementById('result-area');
+
+        loader.style.display = 'flex';
+        
+        setTimeout(() => {
+            loader.style.display = 'none';
+            
+            resultArea.style.display = 'block';
+            
+            const offset = resultArea.offsetTop - 80;
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth'
+            });
+            
+            document.getElementById('res-kcal').innerHTML = '0';
+            document.getElementById('res-p').innerHTML = '0г';
+            document.getElementById('res-f').innerHTML = '0г';
+            document.getElementById('res-c').innerHTML = '0г';
+            document.getElementById('diet-result').innerHTML = 'Тут з\'явиться твій план від ШІ...';
+            
+        }, 1500);
+    };
+</script>
 </body>
 </html>
