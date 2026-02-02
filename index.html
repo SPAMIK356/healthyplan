@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="decorations">
+        <div class="floating-item item-1" data-speed="2">🥑</div>
+        <div class="floating-item item-2" data-speed="-3">🍎</div>
+        <div class="floating-item item-3" data-speed="4">🥦</div>
+        <div class="floating-item item-4" data-speed="-2">🥗</div>
+    </div>
+
+    <header class="glass-header">
+        <div class="logo">Healthy<span>Plan</span></div>
+        <nav>
+            <a href="#hero">Головна</a>
+            <a href="#calculator">Калькулятор</a>
+            <a href="#" id="nav-about">Про нас</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="aurora-gradient"></div>
+
+        <div class="hero-content">
+            <div class="hero-text-wrapper">
+                <h1 class="fade-in">Твій шлях до ідеального тіла через <span id="typewriter" class="gradient-text">розумний раціон</span></h1>
+                <p class="fade-in-delay">Індивідуальна стратегія харчування, що адаптується під твої цілі та параметри тіла.</p>
+            </div>
+
+            <div class="feature-cards fade-in-delay">
+                <div class="info-card glass-card">
+                    <div class="card-icon-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M12 8v-2"/><path d="M12 16v2"/><path d="M16 12h2"/><path d="M8 12H6"/><path d="M12 2a10 10 0 0 1 10 10c0 1.6-.4 3.1-1.1 4.4"/><path d="M12 22a10 10 0 0 1-10-10c0-1.6.4-3.1 1.1-4.4"/><path d="M9 2l.5 2"/><path d="M15 2l-.5 2"/><path d="M9 22l.5-2"/><path d="M15 22l-.5-2"/></svg>
+                    </div>
+                    <h3>AI Аналіз даних</h3>
+                    <p>Алгоритм враховує параметри твого тіла та персональні цілі.</p>
+                </div>
+                
+                <div class="info-card glass-card">
+                    <div class="card-icon-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+                    </div>
+                    <h3>Збалансоване меню</h3>
+                    <p>Оптимальне співвідношення КБЖВ без жорстких обмежень.</p>
+                </div>
+
+                <div class="info-card glass-card">
+                    <div class="card-icon-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <h3>Прогнозований результат</h3>
+                    <p>Досягай мети швидше завдяки точним розрахункам.</p>
+                </div>
+            </div>
+
+            <div class="hero-buttons fade-in-delay">
+                <a href="#calculator" class="btn-primary btn-large">Створити мій план зараз</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Твої параметри</h2>
+                <p>Введи дані, щоб ШІ міг розрахувати твій ідеальний КБЖВ</p>
+            </div>
+
+            <form id="diet-form" class="bento-grid">
+                <div class="bento-item main-metrics glass-card">
+                    <div class="input-group">
+                        <label>Вік: <span id="age-val">25</span></label>
+                        <input type="range" id="age" min="0" max="100" value="25" class="slider">
+                    </div>
+                    <div class="input-group">
+                        <label>Зріст: <span id="height-val">175</span> см</label>
+                        <input type="range" id="height" min="100" max="250" value="175" class="slider">
+                    </div>
+                    <div class="input-group">
+                        <label>Вага: <span id="weight-val">70</span> кг</label>
+                        <input type="range" id="weight" min="0" max="250" value="70" class="slider">
+                    </div>
+                </div>
+
+                <div class="bento-item gender-selection glass-card">
+                    <label>Стать</label>
+                    <div class="radio-group">
+                        <input type="radio" name="gender" value="male" id="male" checked>
+                        <label for="male" class="radio-label">Чоловік</label>
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female" class="radio-label">Жінка</label>
+                    </div>
+                </div>
+
+                <div class="bento-item goal-selection glass-card">
+                    <label>Твоя мета</label>
+                    <div class="goal-cards">
+                        <div class="goal-card active" data-value="weight-loss">Схуднення</div>
+                        <div class="goal-card" data-value="maintenance">Підтримка форми</div>
+                        <div class="goal-card" data-value="muscle-gain">Набір маси</div>
+                        <div class="goal-card" data-value="other">Інше</div>
+                    </div>
+                    <input type="text" id="goal-other" placeholder="Напиши свою мету..." style="display: none;" class="mt-10">
+                    <input type="hidden" id="goal" value="weight-loss"> 
+                </div>
+
+                <div class="bento-item submit-area">
+                    <button type="button" id="submit-btn" class="btn-calculate">
+                        Згенерувати раціон ✨
+                    </button>
+                </div>
+            </form>
+
+            <div id="result-area" class="result-container" style="display: none;">
+                <div class="section-header">
+                    <h2>Твій персональний план</h2>
+                </div>
+                <div class="results-bento">
+                    <div class="macro-card kcal">
+                        <span class="label">Калорії</span>
+                        <span id="res-kcal" class="value">0</span>
+                    </div>
+                    <div class="macro-card protein">
+                        <span class="label">Білки</span>
+                        <span id="res-p" class="value">0г</span>
+                    </div>
+                    <div class="macro-card fats">
+                        <span class="label">Жири</span>
+                        <span id="res-f" class="value">0г</span>
+                    </div>
+                    <div class="macro-card carbs">
+                        <span class="label">Вуглеводи</span>
+                        <span id="res-c" class="value">0г</span>
+                    </div>
+                    <div class="bento-item meal-plan glass-card">
+                        <h3>Меню на день</h3>
+                        <div id="diet-result" class="meal-content">
+                            Тут з'явиться план від ШІ...
+                        </div>
+                    </div>
+                    <div class="bento-item chart-area glass-card">
+                        <h3>Розподіл нутрієнтів</h3>
+                        <div class="chart-wrapper">
+                            <img id="diet-chart" src="" alt="Діаграма">
+                            <div id="chart-placeholder" class="placeholder">Діаграма генерується...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="loader" class="loader-overlay" style="display: none;">
+        <div class="chef-loader"></div>
+        <p>Готуємо твій ідеальний раціон...</p>
+    </div>
+
+    <section id="feedback" class="feedback-section">
+        <div class="glass-card feedback-banner fade-in-scroll">
+            <div class="social-proof">
+                <div class="avatars">
+                    <span class="badge">Доєднуйся до нас!</span>
+                </div>
+                <h2>Твій успіх — наше натхнення ✨</h2>
+                <p>Допоможи нам стати кращими. Поділися своїм результатом!</p>
+                <a href="https://forms.gle/your-link" target="_blank" class="btn-primary">Залишити відгук 💬</a>
+            </div>
+        </div>
+    </section>
+
+ <div id="about-modal" class="modal">
+    <div class="modal-content glass-card premium-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+            <h2>Як працює <span class="gradient-text">розумний план</span>?</h2>
+        </div>
+        <p class="modal-desc">Наш алгоритм аналізує твої параметри та підбирає оптимальне співвідношення нутрієнтів, враховуючи твою мету та особливості.</p>
+        
+        <ul class="modal-list">
+            <li>
+                <div class="icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div><strong>Жодних шаблонів:</strong> Тільки індивідуальні розрахунки під твою метаболічну норму.</div>
+            </li>
+            <li>
+                <div class="icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div><strong>Смак та баланс:</strong> Раціон з продуктів, які ти любиш, без виснажливого голодування.</div>
+            </li>
+            <li>
+                <div class="icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div><strong>Прогнозована мета:</strong> Ти бачиш шлях до результату, підкріплений точними цифрами.</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <script>
+        const typewriter = document.getElementById('typewriter');
+const phrases = ["розумний раціон", "турботу про себе", "твою енергію", "науковий підхід"];
+let phraseIdx = 0;
+let charIdx = 0;
+let isDeleting = false;
+
+function type() {
+    const currentPhrase = phrases[phraseIdx];
+    
+    if (isDeleting) {
+        typewriter.textContent = currentPhrase.substring(0, charIdx - 1);
+        charIdx--;
+    } else {
+        typewriter.textContent = currentPhrase.substring(0, charIdx + 1);
+        charIdx++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIdx === currentPhrase.length) {
+        typeSpeed = 2000; // Пауза в кінці фрази
+        isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        typeSpeed = 500;
+    }
+
+    setTimeout(type, typeSpeed);
+}
+
+// 2. Паралакс декорацій за мишкою
+document.addEventListener('mousemove', (e) => {
+    const items = document.querySelectorAll('.floating-item');
+    const x = (window.innerWidth - e.pageX * 2) / 100;
+    const y = (window.innerHeight - e.pageY * 2) / 100;
+
+    items.forEach(item => {
+        const speed = item.getAttribute('data-speed');
+        item.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px) rotate(${x * 2}deg)`;
+    });
+});
+
+// Запуск друку
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(type, 1000);
+});
+
+        const sliders = ['age', 'height', 'weight'];
+        sliders.forEach(id => {
+            const input = document.getElementById(id);
+            const output = document.getElementById(id + '-val');
+            if (input && output) {
+                input.oninput = function() {
+                    output.innerHTML = this.value;
+                }
+            }
+        });
+
+        document.querySelectorAll('.goal-card').forEach(card => {
+            card.onclick = function() {
+                document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                
+                const goalValue = this.getAttribute('data-value');
+                document.getElementById('goal').value = goalValue;
+                
+                const otherInput = document.getElementById('goal-other');
+                if (otherInput) {
+                    otherInput.style.display = (goalValue === 'other') ? 'block' : 'none';
+                }
+            }
+        });
+
+document.getElementById('submit-btn').onclick = function() {
+    const loader = document.getElementById('loader');
+    const resultArea = document.getElementById('result-area');
+
+    // 1. Показуємо лоадер
+    loader.style.display = 'flex';
+    
+    setTimeout(() => {
+        loader.style.display = 'none';
+        
+        resultArea.style.display = 'block';
+        
+        setTimeout(() => {
+            const headerHeight = document.querySelector('.glass-header').offsetHeight;
+            const elementPosition = resultArea.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }, 50);
+                
+                document.getElementById('res-kcal').innerHTML = '0';
+                document.getElementById('res-p').innerHTML = '0г';
+                document.getElementById('res-f').innerHTML = '0г';
+                document.getElementById('res-c').innerHTML = '0г';
+                document.getElementById('diet-result').innerHTML = 'Тут з\'явиться твій план від ШІ...';
+                document.getElementById('res-kcal').innerHTML = '0';
+                
+            }, 1500);
+        };
+
+        const modal = document.getElementById("about-modal");
+        const closeBtn = document.querySelector(".close-modal");
+        const btn = document.querySelector(".btn-secondary");
+        const span = document.getElementsByClassName("close-modal")[0];
+
+        const aboutTriggers = [
+    document.querySelector(".btn-secondary"), 
+    document.getElementById("nav-about")
+];
+
+aboutTriggers.forEach(trigger => {
+    if (trigger) {
+        trigger.onclick = (e) => {
+            e.preventDefault();
+            modal.style.display = "flex";
+        }
+    }
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+window.onclick = (event) => {
+    if (event.target == modal) modal.style.display = "none";
+}
+
+        if (btn) {
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "flex";
+            }
+        }
+
+        if (span) {
+            span.onclick = function() { modal.style.display = "none"; }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in-scroll').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
