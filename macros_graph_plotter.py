@@ -10,7 +10,7 @@ def generate_pieplot(values : list[float], colors : list[str]) -> str:
 
     buffer = io.BytesIO()
 
-    plt.savefig(buffer,format='png',transparent=False)
+    plt.savefig(buffer,format='png',transparent=True)
     plt.close()
 
     buffer.seek(0)
