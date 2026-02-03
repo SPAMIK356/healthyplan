@@ -281,39 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-document.getElementById('submit-btn').onclick = function() {
-    const loader = document.getElementById('loader');
-    const resultArea = document.getElementById('result-area');
-
-    // 1. Показуємо лоадер
-    loader.style.display = 'flex';
-    
-    setTimeout(() => {
-        loader.style.display = 'none';
-        
-        resultArea.style.display = 'block';
-        
-        setTimeout(() => {
-            const headerHeight = document.querySelector('.glass-header').offsetHeight;
-            const elementPosition = resultArea.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }, 50);
-                
-                document.getElementById('res-kcal').innerHTML = '0';
-                document.getElementById('res-p').innerHTML = '0г';
-                document.getElementById('res-f').innerHTML = '0г';
-                document.getElementById('res-c').innerHTML = '0г';
-                document.getElementById('diet-result').innerHTML = 'Тут з\'явиться твій план від ШІ...';
-                document.getElementById('res-kcal').innerHTML = '0';
-                
-            }, 1500);
-        };
-
         const modal = document.getElementById("about-modal");
         const closeBtn = document.querySelector(".close-modal");
         const btn = document.querySelector(".btn-secondary");
@@ -364,5 +331,7 @@ window.onclick = (event) => {
 
         document.querySelectorAll('.fade-in-scroll').forEach((el) => observer.observe(el));
     </script>
+
+    <script src="./api-logic.js" defer></script>
 </body>
 </html>
