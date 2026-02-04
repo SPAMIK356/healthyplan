@@ -103,3 +103,8 @@ async def get_plan(userParams : UserParams) -> PlanResponse:
 
     completePlan = PlanResponse(**result.model_dump(), chart_img=chart_img)
     return completePlan
+
+@app.get('/health')
+def health():
+    """Пінг для перевірки зв'язку"""
+    return {'status' : 'ok'}

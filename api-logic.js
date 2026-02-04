@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. НАЛАШТУВАННЯ СЕРВЕРА (FAILOVER)
+
+    const LOCAL_API = 'http://127.0.0.1:8000'; 
+    const REMOTE_API = 'http://46.224.54.26:2500'; 
+    let currentApiUrl = REMOTE_API; 
+
+    async function selectServer() {
+        console.log('Перевіряємо локальний сервер...');
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 1000);
+
+            const response = await fetch(`${LOCAL_API}/health`, { 
+                method: 'GET', 
+                signal: controller.signal 
+            });
+            clearTimeout(timeoutId);
+
+            if (response.ok) {
+                console.log('✅ Localhost знайдено!');
+                currentApiUrl = LOCAL_API;
+            }
+        } catch (error) {
+            console.log('☁️ Localhost недоступний, використовуємо віддалений сервер.');
+            currentApiUrl = REMOTE_API;
+        }
+    }
+    selectServer();
+
     const submitBtn = document.getElementById('submit-btn');
 
     submitBtn.onclick = async function (e) {
@@ -31,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultArea.style.display = 'none'; 
 
         try {
-            const response = await fetch('http://46.224.54.26:2500/get_plan', {
+            const response = await fetch(`${currentApiUrl}/get_plan`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
